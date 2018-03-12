@@ -18,7 +18,6 @@ class TableRow extends Component {
 
   rowClick = e => {
     // block click event if clickTimer is null
-    console.log(this.clickTimer);
     if (!this.clickTimer) { return false; }
 
     const rowIndex = this.props.index + 1;

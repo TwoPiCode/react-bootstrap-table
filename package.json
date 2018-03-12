@@ -8,6 +8,8 @@
     "url": "https://github.com/AllenFang/react-bootstrap-table.git"
   },
   "scripts": {
+    "develop": "webpack --config webpack.umd.config.js --watch",
+    "build": "gulp",
     "lint": "eslint src",
     "test": "jest",
     "start": "gulp example-server"

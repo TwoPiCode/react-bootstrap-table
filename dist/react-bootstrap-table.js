@@ -8288,7 +8288,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      // block click event if clickTimer is null
-	      console.log(this.clickTimer);
 	      if (!this.clickTimer) {
 	        return false;
 	      }
