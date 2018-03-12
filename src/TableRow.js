@@ -9,9 +9,18 @@ class TableRow extends Component {
   constructor(props) {
     super(props);
     this.clickNum = 0;
+    this.clickTimer = null;
+  }
+
+  state = {
+    pressing: false
   }
 
   rowClick = e => {
+    // block click event if clickTimer is null
+    console.log(this.clickTimer);
+    if (!this.clickTimer) { return false; }
+
     const rowIndex = this.props.index + 1;
     const cellIndex = e.target.cellIndex;
     if (this.props.onRowClick) this.props.onRowClick(rowIndex, cellIndex, e);
@@ -39,6 +48,33 @@ class TableRow extends Component {
           this.expandRow(e, rowIndex, cellIndex);
         }
       }
+    }
+  }
+
+  rowLongClickDown = e => {
+    const { onRowLongClick, onRowMouseDown, longClickDuration } = this.props;
+    const rowIndex = this.props.index + 1;
+    const cellIndex = e.target.cellIndex;
+    onRowMouseDown && onRowMouseDown(rowIndex, cellIndex, e);
+    this.setState({ pressing: true });
+    e.persist();
+    this.clickTimer = setTimeout(() => {
+      this.clickTimer = null;
+      if (onRowLongClick) {
+        onRowLongClick && onRowLongClick(rowIndex, cellIndex, e);
+        this.setState({ pressing: false });
+      }
+    }, longClickDuration);
+  }
+
+  rowLongClickUp = e => {
+    const { onRowMouseUp } = this.props;
+    const rowIndex = this.props.index + 1;
+    const cellIndex = e.target.cellIndex;
+    onRowMouseUp && onRowMouseUp(rowIndex, cellIndex, e);
+    this.setState({ pressing: false });
+    if (this.clickTimer) {
+      clearTimeout(this.clickTimer);
     }
   }
 
@@ -103,6 +139,7 @@ class TableRow extends Component {
     const trCss = {
       style: { ...style },
       className: classSet(selectRowClass, className)
+        + (this.state.pressing ? ' react-bs-pressing-highlight' : '')
     };
 
     return (
@@ -110,6 +147,8 @@ class TableRow extends Component {
           onMouseOver={ this.rowMouseOver }
           onMouseOut={ this.rowMouseOut }
           onClick={ this.rowClick }
+          onMouseDown={ this.rowLongClickDown }
+          onMouseUp={ this.rowLongClickUp }
           hidden={ hidden }
           onDoubleClick={ this.rowDoubleClick }>{ this.props.children }</tr>
     );

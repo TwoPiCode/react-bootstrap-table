@@ -340,3 +340,7 @@ th.react-bs-table-expand-cell > div {
 .bounceOut {
   animation-name: bounceOut;
 }
+
+.react-bs-pressing-highlight {
+  background-color: #b5b5b5 !important;
+}

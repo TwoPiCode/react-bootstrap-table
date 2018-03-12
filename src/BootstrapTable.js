@@ -519,6 +519,10 @@ class BootstrapTable extends Component {
             cellEdit={ this.props.cellEdit }
             selectedRowKeys={ this.state.selectedRowKeys }
             onRowClick={ this.handleRowClick }
+            onRowLongClick={ this.handleRowLongClick }
+            onRowMouseDown={ this.handleRowMouseDown }
+            onRowMouseUp={ this.handleRowMouseUp }
+            longClickDuration={ this.props.longClickDuration || 500 }
             onRowDoubleClick={ this.handleRowDoubleClick }
             onRowMouseOver={ this.handleRowMouseOver }
             onRowMouseOut={ this.handleRowMouseOut }
@@ -786,6 +790,21 @@ class BootstrapTable extends Component {
         });
       }
     }
+  }
+
+  handleRowLongClick = (row, rowIndex, columnIndex, event) => {
+    const { options: { onRowLongClick } } = this.props;
+    onRowLongClick && onRowLongClick(row, rowIndex, columnIndex, event);
+  }
+
+  handleRowMouseDown = (row, rowIndex, columnIndex, event) => {
+    const { options: { onRowMouseDown } } = this.props;
+    onRowMouseDown && onRowMouseDown(row, rowIndex, columnIndex, event);
+  }
+
+  handleRowMouseUp = (row, rowIndex, columnIndex, event) => {
+    const { options: { onRowMouseUp } } = this.props;
+    onRowMouseUp && onRowMouseUp(row, rowIndex, columnIndex, event);
   }
 
   handleRowDoubleClick = (row, event) => {

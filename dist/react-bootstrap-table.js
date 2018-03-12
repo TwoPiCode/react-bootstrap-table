@@ -283,6 +283,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _this.__handleRowClick__REACT_HOT_LOADER__.apply(_this, arguments);
 	    };
 
+	    _this.handleRowLongClick = function () {
+	      return _this.__handleRowLongClick__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.handleRowMouseDown = function () {
+	      return _this.__handleRowMouseDown__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.handleRowMouseUp = function () {
+	      return _this.__handleRowMouseUp__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
 	    _this.handleRowDoubleClick = function () {
 	      return _this.__handleRowDoubleClick__REACT_HOT_LOADER__.apply(_this, arguments);
 	    };
@@ -452,6 +464,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '__handleRowDoubleClick__REACT_HOT_LOADER__',
 	    value: function __handleRowDoubleClick__REACT_HOT_LOADER__() {
 	      return this.__handleRowDoubleClick__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowMouseUp__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseUp__REACT_HOT_LOADER__() {
+	      return this.__handleRowMouseUp__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowMouseDown__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseDown__REACT_HOT_LOADER__() {
+	      return this.__handleRowMouseDown__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
+	    value: function __handleRowLongClick__REACT_HOT_LOADER__() {
+	      return this.__handleRowLongClick__REACT_HOT_LOADER__.apply(this, arguments);
 	    }
 	  }, {
 	    key: '__handleRowClick__REACT_HOT_LOADER__',
@@ -1010,6 +1037,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            cellEdit: this.props.cellEdit,
 	            selectedRowKeys: this.state.selectedRowKeys,
 	            onRowClick: this.handleRowClick,
+	            onRowLongClick: this.handleRowLongClick,
+	            onRowMouseDown: this.handleRowMouseDown,
+	            onRowMouseUp: this.handleRowMouseUp,
+	            longClickDuration: this.props.longClickDuration || 500,
 	            onRowDoubleClick: this.handleRowDoubleClick,
 	            onRowMouseOver: this.handleRowMouseOver,
 	            onRowMouseOut: this.handleRowMouseOut,
@@ -1319,6 +1350,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	          });
 	        }
 	      }
+	    }
+	  }, {
+	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
+	    value: function __handleRowLongClick__REACT_HOT_LOADER__(row, rowIndex, columnIndex, event) {
+	      var onRowLongClick = this.props.options.onRowLongClick;
+
+	      onRowLongClick && onRowLongClick(row, rowIndex, columnIndex, event);
+	    }
+	  }, {
+	    key: '__handleRowMouseDown__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseDown__REACT_HOT_LOADER__(row, rowIndex, columnIndex, event) {
+	      var onRowMouseDown = this.props.options.onRowMouseDown;
+
+	      onRowMouseDown && onRowMouseDown(row, rowIndex, columnIndex, event);
+	    }
+	  }, {
+	    key: '__handleRowMouseUp__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseUp__REACT_HOT_LOADER__(row, rowIndex, columnIndex, event) {
+	      var onRowMouseUp = this.props.options.onRowMouseUp;
+
+	      onRowMouseUp && onRowMouseUp(row, rowIndex, columnIndex, event);
 	    }
 	  }, {
 	    key: '__handleRowDoubleClick__REACT_HOT_LOADER__',
@@ -2555,9 +2607,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(BootstrapTable, 'BootstrapTable', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/BootstrapTable.js');
+	  __REACT_HOT_LOADER__.register(BootstrapTable, 'BootstrapTable', '/Users/Bear/armix/react-bootstrap-table/src/BootstrapTable.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/BootstrapTable.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/BootstrapTable.js');
 	}();
 
 	;
@@ -4954,9 +5006,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(CONST_VAR, 'CONST_VAR', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Const.js');
+	  __REACT_HOT_LOADER__.register(CONST_VAR, 'CONST_VAR', '/Users/Bear/armix/react-bootstrap-table/src/Const.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Const.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/Const.js');
 	}();
 
 	;
@@ -5428,11 +5480,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableHeaderColumn, 'TableHeaderColumn', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(TableHeaderColumn, 'TableHeaderColumn', '/Users/Bear/armix/react-bootstrap-table/src/TableHeaderColumn.js');
 
-	  __REACT_HOT_LOADER__.register(filterTypeArray, 'filterTypeArray', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(filterTypeArray, 'filterTypeArray', '/Users/Bear/armix/react-bootstrap-table/src/TableHeaderColumn.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableHeaderColumn.js');
 	}();
 
 	;
@@ -5590,7 +5642,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/util.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/util.js');
 	}();
 
 	;
@@ -5818,13 +5870,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(legalComparators, 'legalComparators', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Date.js');
+	  __REACT_HOT_LOADER__.register(legalComparators, 'legalComparators', '/Users/Bear/armix/react-bootstrap-table/src/filters/Date.js');
 
-	  __REACT_HOT_LOADER__.register(dateParser, 'dateParser', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Date.js');
+	  __REACT_HOT_LOADER__.register(dateParser, 'dateParser', '/Users/Bear/armix/react-bootstrap-table/src/filters/Date.js');
 
-	  __REACT_HOT_LOADER__.register(DateFilter, 'DateFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Date.js');
+	  __REACT_HOT_LOADER__.register(DateFilter, 'DateFilter', '/Users/Bear/armix/react-bootstrap-table/src/filters/Date.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Date.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/filters/Date.js');
 	}();
 
 	;
@@ -5977,9 +6029,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TextFilter, 'TextFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Text.js');
+	  __REACT_HOT_LOADER__.register(TextFilter, 'TextFilter', '/Users/Bear/armix/react-bootstrap-table/src/filters/Text.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Text.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/filters/Text.js');
 	}();
 
 	;
@@ -6116,9 +6168,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(RegexFilter, 'RegexFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Regex.js');
+	  __REACT_HOT_LOADER__.register(RegexFilter, 'RegexFilter', '/Users/Bear/armix/react-bootstrap-table/src/filters/Regex.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Regex.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/filters/Regex.js');
 	}();
 
 	;
@@ -6318,11 +6370,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(optionsEquals, 'optionsEquals', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Select.js');
+	  __REACT_HOT_LOADER__.register(optionsEquals, 'optionsEquals', '/Users/Bear/armix/react-bootstrap-table/src/filters/Select.js');
 
-	  __REACT_HOT_LOADER__.register(SelectFilter, 'SelectFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Select.js');
+	  __REACT_HOT_LOADER__.register(SelectFilter, 'SelectFilter', '/Users/Bear/armix/react-bootstrap-table/src/filters/Select.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Select.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/filters/Select.js');
 	}();
 
 	;
@@ -6607,11 +6659,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(legalComparators, 'legalComparators', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Number.js');
+	  __REACT_HOT_LOADER__.register(legalComparators, 'legalComparators', '/Users/Bear/armix/react-bootstrap-table/src/filters/Number.js');
 
-	  __REACT_HOT_LOADER__.register(NumberFilter, 'NumberFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Number.js');
+	  __REACT_HOT_LOADER__.register(NumberFilter, 'NumberFilter', '/Users/Bear/armix/react-bootstrap-table/src/filters/Number.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filters/Number.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/filters/Number.js');
 	}();
 
 	;
@@ -6918,13 +6970,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(Checkbox, 'Checkbox', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeader.js');
+	  __REACT_HOT_LOADER__.register(Checkbox, 'Checkbox', '/Users/Bear/armix/react-bootstrap-table/src/TableHeader.js');
 
-	  __REACT_HOT_LOADER__.register(getSortOrder, 'getSortOrder', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeader.js');
+	  __REACT_HOT_LOADER__.register(getSortOrder, 'getSortOrder', '/Users/Bear/armix/react-bootstrap-table/src/TableHeader.js');
 
-	  __REACT_HOT_LOADER__.register(TableHeader, 'TableHeader', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeader.js');
+	  __REACT_HOT_LOADER__.register(TableHeader, 'TableHeader', '/Users/Bear/armix/react-bootstrap-table/src/TableHeader.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableHeader.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableHeader.js');
 	}();
 
 	;
@@ -6994,9 +7046,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(SelectRowHeaderColumn, 'SelectRowHeaderColumn', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/SelectRowHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(SelectRowHeaderColumn, 'SelectRowHeaderColumn', '/Users/Bear/armix/react-bootstrap-table/src/SelectRowHeaderColumn.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/SelectRowHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/SelectRowHeaderColumn.js');
 	}();
 
 	;
@@ -7091,9 +7143,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(ExpandRowHeaderColumn, 'ExpandRowHeaderColumn', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/ExpandRowHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(ExpandRowHeaderColumn, 'ExpandRowHeaderColumn', '/Users/Bear/armix/react-bootstrap-table/src/ExpandRowHeaderColumn.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/ExpandRowHeaderColumn.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/ExpandRowHeaderColumn.js');
 	}();
 
 	;
@@ -7245,9 +7297,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableFooter, 'TableFooter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableFooter.js');
+	  __REACT_HOT_LOADER__.register(TableFooter, 'TableFooter', '/Users/Bear/armix/react-bootstrap-table/src/TableFooter.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableFooter.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableFooter.js');
 	}();
 
 	;
@@ -7334,6 +7386,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _this.handleRowClick = function () {
 	      return _this.__handleRowClick__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.handleRowLongClick = function () {
+	      return _this.__handleRowLongClick__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.handleRowMouseDown = function () {
+	      return _this.__handleRowMouseDown__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.handleRowMouseUp = function () {
+	      return _this.__handleRowMouseUp__REACT_HOT_LOADER__.apply(_this, arguments);
 	    };
 
 	    _this.handleRowDoubleClick = function () {
@@ -7431,6 +7495,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '__handleRowDoubleClick__REACT_HOT_LOADER__',
 	    value: function __handleRowDoubleClick__REACT_HOT_LOADER__() {
 	      return this.__handleRowDoubleClick__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowMouseUp__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseUp__REACT_HOT_LOADER__() {
+	      return this.__handleRowMouseUp__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowMouseDown__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseDown__REACT_HOT_LOADER__() {
+	      return this.__handleRowMouseDown__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
+	    value: function __handleRowLongClick__REACT_HOT_LOADER__() {
+	      return this.__handleRowLongClick__REACT_HOT_LOADER__.apply(this, arguments);
 	    }
 	  }, {
 	    key: '__handleRowClick__REACT_HOT_LOADER__',
@@ -7615,6 +7694,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            selectRow: isSelectRowDefined ? this.props.selectRow : undefined,
 	            enableCellEdit: cellEdit.mode !== _Const2.default.CELL_EDIT_NONE,
 	            onRowClick: this.handleRowClick,
+	            onRowLongClick: this.handleRowLongClick,
+	            onRowMouseDown: this.handleRowMouseDown,
+	            onRowMouseUp: this.handleRowMouseUp,
+	            longClickDuration: this.props.longClickDuration,
 	            onRowDoubleClick: this.handleRowDoubleClick,
 	            onRowMouseOver: this.handleRowMouseOver,
 	            onRowMouseOut: this.handleRowMouseOut,
@@ -7758,6 +7841,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (_util2.default.isSelectRowDefined(selectRow.mode)) cellIndex--;
 	      if (this._isExpandColumnVisible()) cellIndex--;
 	      onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+	    }
+	  }, {
+	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
+	    value: function __handleRowLongClick__REACT_HOT_LOADER__(rowIndex, cellIndex, event) {
+	      var onRowLongClick = this.props.onRowLongClick;
+
+	      onRowLongClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+	    }
+	  }, {
+	    key: '__handleRowMouseDown__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseDown__REACT_HOT_LOADER__(rowIndex, cellIndex, event) {
+	      var onRowMouseDown = this.props.onRowMouseDown;
+
+	      onRowMouseDown(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+	    }
+	  }, {
+	    key: '__handleRowMouseUp__REACT_HOT_LOADER__',
+	    value: function __handleRowMouseUp__REACT_HOT_LOADER__(rowIndex, cellIndex, event) {
+	      var onRowMouseUp = this.props.onRowMouseUp;
+
+	      onRowMouseUp(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
 	    }
 	  }, {
 	    key: '__handleRowDoubleClick__REACT_HOT_LOADER__',
@@ -8052,9 +8156,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableBody, 'TableBody', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableBody.js');
+	  __REACT_HOT_LOADER__.register(TableBody, 'TableBody', '/Users/Bear/armix/react-bootstrap-table/src/TableBody.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableBody.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableBody.js');
 	}();
 
 	;
@@ -8106,8 +8210,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (TableRow.__proto__ || Object.getPrototypeOf(TableRow)).call(this, props));
 
+	    _this.state = {
+	      pressing: false
+	    };
+
 	    _this.rowClick = function () {
 	      return _this.__rowClick__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.rowLongClickDown = function () {
+	      return _this.__rowLongClickDown__REACT_HOT_LOADER__.apply(_this, arguments);
+	    };
+
+	    _this.rowLongClickUp = function () {
+	      return _this.__rowLongClickUp__REACT_HOT_LOADER__.apply(_this, arguments);
 	    };
 
 	    _this.expandRow = function () {
@@ -8127,6 +8243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    _this.clickNum = 0;
+	    _this.clickTimer = null;
 	    return _this;
 	  }
 
@@ -8151,6 +8268,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return this.__expandRow__REACT_HOT_LOADER__.apply(this, arguments);
 	    }
 	  }, {
+	    key: '__rowLongClickUp__REACT_HOT_LOADER__',
+	    value: function __rowLongClickUp__REACT_HOT_LOADER__() {
+	      return this.__rowLongClickUp__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
+	    key: '__rowLongClickDown__REACT_HOT_LOADER__',
+	    value: function __rowLongClickDown__REACT_HOT_LOADER__() {
+	      return this.__rowLongClickDown__REACT_HOT_LOADER__.apply(this, arguments);
+	    }
+	  }, {
 	    key: '__rowClick__REACT_HOT_LOADER__',
 	    value: function __rowClick__REACT_HOT_LOADER__() {
 	      return this.__rowClick__REACT_HOT_LOADER__.apply(this, arguments);
@@ -8159,6 +8286,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '__rowClick__REACT_HOT_LOADER__',
 	    value: function __rowClick__REACT_HOT_LOADER__(e) {
 	      var _this2 = this;
+
+	      // block click event if clickTimer is null
+	      console.log(this.clickTimer);
+	      if (!this.clickTimer) {
+	        return false;
+	      }
 
 	      var rowIndex = this.props.index + 1;
 	      var cellIndex = e.target.cellIndex;
@@ -8195,16 +8328,52 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, {
+	    key: '__rowLongClickDown__REACT_HOT_LOADER__',
+	    value: function __rowLongClickDown__REACT_HOT_LOADER__(e) {
+	      var _this3 = this;
+
+	      var _props2 = this.props,
+	          onRowLongClick = _props2.onRowLongClick,
+	          onRowMouseDown = _props2.onRowMouseDown,
+	          longClickDuration = _props2.longClickDuration;
+
+	      var rowIndex = this.props.index + 1;
+	      var cellIndex = e.target.cellIndex;
+	      onRowMouseDown && onRowMouseDown(rowIndex, cellIndex, e);
+	      this.setState({ pressing: true });
+	      e.persist();
+	      this.clickTimer = setTimeout(function () {
+	        _this3.clickTimer = null;
+	        if (onRowLongClick) {
+	          onRowLongClick && onRowLongClick(rowIndex, cellIndex, e);
+	          _this3.setState({ pressing: false });
+	        }
+	      }, longClickDuration);
+	    }
+	  }, {
+	    key: '__rowLongClickUp__REACT_HOT_LOADER__',
+	    value: function __rowLongClickUp__REACT_HOT_LOADER__(e) {
+	      var onRowMouseUp = this.props.onRowMouseUp;
+
+	      var rowIndex = this.props.index + 1;
+	      var cellIndex = e.target.cellIndex;
+	      onRowMouseUp && onRowMouseUp(rowIndex, cellIndex, e);
+	      this.setState({ pressing: false });
+	      if (this.clickTimer) {
+	        clearTimeout(this.clickTimer);
+	      }
+	    }
+	  }, {
 	    key: '__expandRow__REACT_HOT_LOADER__',
 	    value: function __expandRow__REACT_HOT_LOADER__(event, rowIndex, cellIndex) {
-	      var _this3 = this;
+	      var _this4 = this;
 
 	      this.clickNum++;
 	      setTimeout(function () {
-	        if (_this3.clickNum === 1) {
-	          _this3.props.onExpandRow(event, rowIndex, cellIndex);
+	        if (_this4.clickNum === 1) {
+	          _this4.props.onExpandRow(event, rowIndex, cellIndex);
 	        }
-	        _this3.clickNum = 0;
+	        _this4.clickNum = 0;
 	      }, 200);
 	    }
 	  }, {
@@ -8236,13 +8405,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'render',
 	    value: function render() {
 	      this.clickNum = 0;
-	      var _props2 = this.props,
-	          selectRow = _props2.selectRow,
-	          row = _props2.row,
-	          isSelected = _props2.isSelected,
-	          className = _props2.className,
-	          index = _props2.index,
-	          hidden = _props2.hidden;
+	      var _props3 = this.props,
+	          selectRow = _props3.selectRow,
+	          row = _props3.row,
+	          isSelected = _props3.isSelected,
+	          className = _props3.className,
+	          index = _props3.index,
+	          hidden = _props3.hidden;
 	      var style = this.props.style;
 
 	      var backgroundColor = null;
@@ -8265,7 +8434,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      var trCss = {
 	        style: _extends({}, style),
-	        className: (0, _classnames2.default)(selectRowClass, className)
+	        className: (0, _classnames2.default)(selectRowClass, className) + (this.state.pressing ? ' react-bs-pressing-highlight' : '')
 	      };
 
 	      return _react2.default.createElement(
@@ -8274,6 +8443,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onMouseOver: this.rowMouseOver,
 	          onMouseOut: this.rowMouseOut,
 	          onClick: this.rowClick,
+	          onMouseDown: this.rowLongClickDown,
+	          onMouseUp: this.rowLongClickUp,
 	          hidden: hidden,
 	          onDoubleClick: this.rowDoubleClick }),
 	        this.props.children
@@ -8313,9 +8484,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableRow, 'TableRow', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableRow.js');
+	  __REACT_HOT_LOADER__.register(TableRow, 'TableRow', '/Users/Bear/armix/react-bootstrap-table/src/TableRow.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableRow.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableRow.js');
 	}();
 
 	;
@@ -8593,9 +8764,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableColumn, 'TableColumn', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableColumn.js');
+	  __REACT_HOT_LOADER__.register(TableColumn, 'TableColumn', '/Users/Bear/armix/react-bootstrap-table/src/TableColumn.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableColumn.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableColumn.js');
 	}();
 
 	;
@@ -9048,9 +9219,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableEditColumn, 'TableEditColumn', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableEditColumn.js');
+	  __REACT_HOT_LOADER__.register(TableEditColumn, 'TableEditColumn', '/Users/Bear/armix/react-bootstrap-table/src/TableEditColumn.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableEditColumn.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableEditColumn.js');
 	}();
 
 	;
@@ -9198,9 +9369,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(editor, 'editor', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Editor.js');
+	  __REACT_HOT_LOADER__.register(editor, 'editor', '/Users/Bear/armix/react-bootstrap-table/src/Editor.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Editor.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/Editor.js');
 	}();
 
 	;
@@ -9243,7 +9414,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(notice, 'notice', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Notification.js');
+	  __REACT_HOT_LOADER__.register(notice, 'notice', '/Users/Bear/armix/react-bootstrap-table/src/Notification.js');
 	}();
 
 	;
@@ -9324,9 +9495,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(ExpandComponent, 'ExpandComponent', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/ExpandComponent.js');
+	  __REACT_HOT_LOADER__.register(ExpandComponent, 'ExpandComponent', '/Users/Bear/armix/react-bootstrap-table/src/ExpandComponent.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/ExpandComponent.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/ExpandComponent.js');
 	}();
 
 	;
@@ -9814,9 +9985,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(PaginationList, 'PaginationList', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/PaginationList.js');
+	  __REACT_HOT_LOADER__.register(PaginationList, 'PaginationList', '/Users/Bear/armix/react-bootstrap-table/src/pagination/PaginationList.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/PaginationList.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/pagination/PaginationList.js');
 	}();
 
 	;
@@ -9922,9 +10093,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(PageButton, 'PageButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/PageButton.js');
+	  __REACT_HOT_LOADER__.register(PageButton, 'PageButton', '/Users/Bear/armix/react-bootstrap-table/src/pagination/PageButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/PageButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/pagination/PageButton.js');
 	}();
 
 	;
@@ -10055,11 +10226,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(sizePerPageDefaultClass, 'sizePerPageDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
+	  __REACT_HOT_LOADER__.register(sizePerPageDefaultClass, 'sizePerPageDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
 
-	  __REACT_HOT_LOADER__.register(SizePerPageDropDown, 'SizePerPageDropDown', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
+	  __REACT_HOT_LOADER__.register(SizePerPageDropDown, 'SizePerPageDropDown', '/Users/Bear/armix/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/pagination/SizePerPageDropDown.js');
 	}();
 
 	;
@@ -10781,9 +10952,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(ToolBar, 'ToolBar', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ToolBar.js');
+	  __REACT_HOT_LOADER__.register(ToolBar, 'ToolBar', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ToolBar.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ToolBar.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ToolBar.js');
 	}();
 
 	;
@@ -12175,11 +12346,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(defaultModalClassName, 'defaultModalClassName', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModal.js');
+	  __REACT_HOT_LOADER__.register(defaultModalClassName, 'defaultModalClassName', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModal.js');
 
-	  __REACT_HOT_LOADER__.register(InsertModal, 'InsertModal', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModal.js');
+	  __REACT_HOT_LOADER__.register(InsertModal, 'InsertModal', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModal.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModal.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModal.js');
 	}();
 
 	;
@@ -12339,9 +12510,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(InsertModalHeader, 'InsertModalHeader', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalHeader.js');
+	  __REACT_HOT_LOADER__.register(InsertModalHeader, 'InsertModalHeader', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalHeader.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalHeader.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalHeader.js');
 	}();
 
 	;
@@ -12510,9 +12681,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(InsertModalFooter, 'InsertModalFooter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalFooter.js');
+	  __REACT_HOT_LOADER__.register(InsertModalFooter, 'InsertModalFooter', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalFooter.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalFooter.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalFooter.js');
 	}();
 
 	;
@@ -12675,9 +12846,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(InsertModalBody, 'InsertModalBody', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalBody.js');
+	  __REACT_HOT_LOADER__.register(InsertModalBody, 'InsertModalBody', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalBody.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertModalBody.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertModalBody.js');
 	}();
 
 	;
@@ -12786,11 +12957,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(insertBtnDefaultClass, 'insertBtnDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertButton.js');
+	  __REACT_HOT_LOADER__.register(insertBtnDefaultClass, 'insertBtnDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertButton.js');
 
-	  __REACT_HOT_LOADER__.register(InsertButton, 'InsertButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertButton.js');
+	  __REACT_HOT_LOADER__.register(InsertButton, 'InsertButton', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/InsertButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/InsertButton.js');
 	}();
 
 	;
@@ -12899,11 +13070,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(deleteBtnDefaultClass, 'deleteBtnDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/DeleteButton.js');
+	  __REACT_HOT_LOADER__.register(deleteBtnDefaultClass, 'deleteBtnDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/DeleteButton.js');
 
-	  __REACT_HOT_LOADER__.register(DeleteButton, 'DeleteButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/DeleteButton.js');
+	  __REACT_HOT_LOADER__.register(DeleteButton, 'DeleteButton', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/DeleteButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/DeleteButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/DeleteButton.js');
 	}();
 
 	;
@@ -13012,11 +13183,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(exportCsvBtnDefaultClass, 'exportCsvBtnDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
+	  __REACT_HOT_LOADER__.register(exportCsvBtnDefaultClass, 'exportCsvBtnDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
 
-	  __REACT_HOT_LOADER__.register(ExportCSVButton, 'ExportCSVButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
+	  __REACT_HOT_LOADER__.register(ExportCSVButton, 'ExportCSVButton', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ExportCSVButton.js');
 	}();
 
 	;
@@ -13128,11 +13299,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(showSelectedOnlyBtnDefaultClass, 'showSelectedOnlyBtnDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
+	  __REACT_HOT_LOADER__.register(showSelectedOnlyBtnDefaultClass, 'showSelectedOnlyBtnDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
 
-	  __REACT_HOT_LOADER__.register(ShowSelectedOnlyButton, 'ShowSelectedOnlyButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
+	  __REACT_HOT_LOADER__.register(ShowSelectedOnlyButton, 'ShowSelectedOnlyButton', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ShowSelectedOnlyButton.js');
 	}();
 
 	;
@@ -13238,9 +13409,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(SearchField, 'SearchField', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/SearchField.js');
+	  __REACT_HOT_LOADER__.register(SearchField, 'SearchField', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/SearchField.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/SearchField.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/SearchField.js');
 	}();
 
 	;
@@ -13341,11 +13512,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(clearBtnDefaultClass, 'clearBtnDefaultClass', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
+	  __REACT_HOT_LOADER__.register(clearBtnDefaultClass, 'clearBtnDefaultClass', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
 
-	  __REACT_HOT_LOADER__.register(ClearSearchButton, 'ClearSearchButton', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
+	  __REACT_HOT_LOADER__.register(ClearSearchButton, 'ClearSearchButton', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ClearSearchButton.js');
 	}();
 
 	;
@@ -13504,9 +13675,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableFilter, 'TableFilter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableFilter.js');
+	  __REACT_HOT_LOADER__.register(TableFilter, 'TableFilter', '/Users/Bear/armix/react-bootstrap-table/src/TableFilter.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/TableFilter.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/TableFilter.js');
 	}();
 
 	;
@@ -14382,7 +14553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(TableDataStore, 'TableDataStore', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/store/TableDataStore.js');
+	  __REACT_HOT_LOADER__.register(TableDataStore, 'TableDataStore', '/Users/Bear/armix/react-bootstrap-table/src/store/TableDataStore.js');
 	}();
 
 	;
@@ -14492,13 +14663,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(saveAs, 'saveAs', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/csv_export_util.js');
+	  __REACT_HOT_LOADER__.register(saveAs, 'saveAs', '/Users/Bear/armix/react-bootstrap-table/src/csv_export_util.js');
 
-	  __REACT_HOT_LOADER__.register(toString, 'toString', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/csv_export_util.js');
+	  __REACT_HOT_LOADER__.register(toString, 'toString', '/Users/Bear/armix/react-bootstrap-table/src/csv_export_util.js');
 
-	  __REACT_HOT_LOADER__.register(exportCSV, 'exportCSV', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/csv_export_util.js');
+	  __REACT_HOT_LOADER__.register(exportCSV, 'exportCSV', '/Users/Bear/armix/react-bootstrap-table/src/csv_export_util.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/csv_export_util.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/csv_export_util.js');
 	}();
 
 	;
@@ -14696,7 +14867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			return;
 		}
 
-		__REACT_HOT_LOADER__.register(saveAs, "saveAs", "/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/filesaver.js");
+		__REACT_HOT_LOADER__.register(saveAs, "saveAs", "/Users/Bear/armix/react-bootstrap-table/src/filesaver.js");
 	}();
 
 	;
@@ -14800,7 +14971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(Filter, 'Filter', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/Filter.js');
+	  __REACT_HOT_LOADER__.register(Filter, 'Filter', '/Users/Bear/armix/react-bootstrap-table/src/Filter.js');
 	}();
 
 	;
@@ -15192,9 +15363,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(ButtonGroup, 'ButtonGroup', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ButtonGroup.js');
+	  __REACT_HOT_LOADER__.register(ButtonGroup, 'ButtonGroup', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ButtonGroup.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/allen/Node/react-bootstrap-table-new/react-bootstrap-table/src/toolbar/ButtonGroup.js');
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Bear/armix/react-bootstrap-table/src/toolbar/ButtonGroup.js');
 	}();
 
 	;

@@ -182,6 +182,10 @@ class TableBody extends Component {
         selectRow={ isSelectRowDefined ? this.props.selectRow : undefined }
         enableCellEdit={ cellEdit.mode !== Const.CELL_EDIT_NONE }
         onRowClick={ this.handleRowClick }
+        onRowLongClick={ this.handleRowLongClick }
+        onRowMouseDown={ this.handleRowMouseDown }
+        onRowMouseUp={ this.handleRowMouseUp }
+        longClickDuration={ this.props.longClickDuration }
         onRowDoubleClick={ this.handleRowDoubleClick }
         onRowMouseOver={ this.handleRowMouseOver }
         onRowMouseOut={ this.handleRowMouseOut }
@@ -315,6 +319,21 @@ class TableBody extends Component {
     if (Utils.isSelectRowDefined(selectRow.mode)) cellIndex--;
     if (this._isExpandColumnVisible()) cellIndex--;
     onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+  }
+
+  handleRowLongClick = (rowIndex, cellIndex, event) => {
+    const { onRowLongClick } = this.props;
+    onRowLongClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+  }
+
+  handleRowMouseDown = (rowIndex, cellIndex, event) => {
+    const { onRowMouseDown } = this.props;
+    onRowMouseDown(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+  }
+
+  handleRowMouseUp = (rowIndex, cellIndex, event) => {
+    const { onRowMouseUp } = this.props;
+    onRowMouseUp(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
   }
 
   handleRowDoubleClick = (rowIndex, event) => {
