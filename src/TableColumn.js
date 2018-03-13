@@ -112,7 +112,8 @@ class TableColumn extends Component {
       tabIndex,
       customNavStyle,
       withoutTabIndex,
-      row
+      row,
+      cellWrapper
     } = this.props;
 
     let { className } = this.props;
@@ -154,14 +155,21 @@ class TableColumn extends Component {
 
     const attr = {};
     if (!withoutTabIndex) attr.tabIndex = tabIndex;
-    return (
+
+    const cellContent = (
+      typeof children === 'boolean' ? children.toString() : children
+    );
+
+    const cell = (
       <td { ...attr } style={ tdStyle }
           title={ columnTitle }
           className={ className }
           { ...opts } { ...attrs }>
-        { typeof children === 'boolean' ? children.toString() : children }
+          { cellWrapper({ ...this.props, children: cellContent }) }
       </td>
     );
+
+    return cell;
   }
 }
 TableColumn.propTypes = {

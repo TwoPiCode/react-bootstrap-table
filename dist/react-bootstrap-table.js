@@ -1057,6 +1057,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            y: this.state.y,
 	            withoutTabIndex: this.props.withoutTabIndex,
 	            hideRowOnExpand: hideRowOnExpand,
+	            cellWrapper: this.props.cellWrapper,
 	            onEditCell: this.handleEditCell }),
 	          tableFooter
 	        ),
@@ -7664,6 +7665,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                onKeyDown: this.handleCellKeyDown,
 	                customNavStyle: customNavStyle,
 	                row: data,
+	                cellWrapper: this.props.cellWrapper,
 	                withoutTabIndex: this.props.withoutTabIndex },
 	              columnChild
 	            );
@@ -8293,7 +8295,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 
 	      var rowIndex = this.props.index + 1;
-	      var cellIndex = e.target.cellIndex;
+	      var cellIndex = e.target.cellIndex || e.target.closest('td').cellIndex;
 	      if (this.props.onRowClick) this.props.onRowClick(rowIndex, cellIndex, e);
 	      var _props = this.props,
 	          selectRow = _props.selectRow,
@@ -8677,7 +8679,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          tabIndex = _props2.tabIndex,
 	          customNavStyle = _props2.customNavStyle,
 	          withoutTabIndex = _props2.withoutTabIndex,
-	          row = _props2.row;
+	          row = _props2.row,
+	          cellWrapper = _props2.cellWrapper;
 	      var className = this.props.className;
 
 
@@ -8713,14 +8716,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      var attr = {};
 	      if (!withoutTabIndex) attr.tabIndex = tabIndex;
-	      return _react2.default.createElement(
+
+	      var cellContent = typeof children === 'boolean' ? children.toString() : children;
+
+	      var cell = _react2.default.createElement(
 	        'td',
 	        _extends({}, attr, { style: tdStyle,
 	          title: columnTitle,
 	          className: className
 	        }, opts, attrs),
-	        typeof children === 'boolean' ? children.toString() : children
+	        cellWrapper(_extends({}, this.props, { children: cellContent }))
 	      );
+
+	      return cell;
 	    }
 	  }]);
 

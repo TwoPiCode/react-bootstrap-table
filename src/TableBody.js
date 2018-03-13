@@ -147,6 +147,7 @@ class TableBody extends Component {
               onKeyDown={ this.handleCellKeyDown }
               customNavStyle={ customNavStyle }
               row={ data }
+              cellWrapper={ this.props.cellWrapper }
               withoutTabIndex={ this.props.withoutTabIndex }>
               { columnChild }
             </TableColumn>

@@ -539,10 +539,9 @@ class BootstrapTable extends Component {
             y={ this.state.y }
             withoutTabIndex={ this.props.withoutTabIndex }
             hideRowOnExpand={ hideRowOnExpand }
+            cellWrapper={ this.props.cellWrapper }
             onEditCell={ this.handleEditCell } />
-            {
-              tableFooter
-            }
+            {tableFooter}
         </div>
         { tableFilter }
         { showPaginationOnBottom ? pagination : null }
