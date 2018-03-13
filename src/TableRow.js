@@ -21,7 +21,7 @@ class TableRow extends Component {
     if (!this.clickTimer) { return false; }
 
     const rowIndex = this.props.index + 1;
-    const cellIndex = e.target.cellIndex;
+    const cellIndex = e.target.cellIndex || (e.target.closest('td')).cellIndex;
     if (this.props.onRowClick) this.props.onRowClick(rowIndex, cellIndex, e);
     const {
       selectRow, unselectableRow, isSelected, onSelectRow, onExpandRow, dbClickToEdit
