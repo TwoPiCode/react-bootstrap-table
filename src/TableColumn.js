@@ -165,7 +165,7 @@ class TableColumn extends Component {
           title={ columnTitle }
           className={ className }
           { ...opts } { ...attrs }>
-          { cellWrapper({ ...this.props, children: cellContent }) }
+          { cellWrapper ? cellWrapper({ ...this.props, children: cellContent }) : cellContent }
       </td>
     );
 
