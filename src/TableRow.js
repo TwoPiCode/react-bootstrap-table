@@ -146,6 +146,9 @@ class TableRow extends Component {
           onMouseOver={ this.rowMouseOver }
           onMouseOut={ this.rowMouseOut }
           onClick={ this.rowClick }
+          onTouchStart={ this.rowLongClickDown }
+          onTouchEnd={ this.rowLongClickUp }
+          onTouchMove={ this.rowLongClickUp }
           onMouseDown={ this.rowLongClickDown }
           onMouseUp={ this.rowLongClickUp }
           hidden={ hidden }
