@@ -22,9 +22,9 @@ class TableRow extends Component {
 
     const rowIndex = this.props.index + 1;
     const cellIndex = e.target.cellIndex || (e.target.closest('td')).cellIndex;
-    if (this.props.onRowClick) this.props.onRowClick(rowIndex, cellIndex, e);
+
     const {
-      selectRow, unselectableRow, isSelected, onSelectRow, onExpandRow, dbClickToEdit
+      selectRow, unselectableRow, isSelected, onSelectRow, dbClickToEdit
     } = this.props;
     if (selectRow) {
       if (selectRow.clickToSelect && !unselectableRow) {
@@ -38,7 +38,6 @@ class TableRow extends Component {
         setTimeout(() => {
           if (this.clickNum === 1) {
             onSelectRow(rowIndex, !isSelected, e);
-            onExpandRow(e, rowIndex, cellIndex);
           }
           this.clickNum = 0;
         }, 200);

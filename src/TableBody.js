@@ -57,13 +57,15 @@ class TableBody extends Component {
       const tableColumns = this.props.columns.filter(_ => _ != null).map(function(column, i) {
         const fieldValue = data[column.name];
         const isFocusCell = r === y && i === x;
+
         if (column.name !== this.props.keyField && // Key field can't be edit
           column.editable && // column is editable? default is true, user can set it false
           column.editable.readOnly !== true &&
           this.state.currEditCell !== null &&
           this.state.currEditCell.rid === r &&
           this.state.currEditCell.cid === i &&
-          noneditableRows.indexOf(data[this.props.keyField]) === -1) {
+          noneditableRows.indexOf(data[this.props.keyField]) === -1
+        ) {
           let editable = column.editable;
           const format = column.format ? function(value) {
             return column.format(value, data, column.formatExtraData, r).replace(/<.*?>/g, '');
@@ -73,27 +75,27 @@ class TableBody extends Component {
           }
 
           return (
-              <TableEditColumn
-                completeEdit={ this.handleCompleteEditCell }
-                // add by bluespring for column editor customize
-                editable={ editable }
-                attrs={ column.editAttrs }
-                customEditor={ column.customEditor }
-                format={ column.format ? format : false }
-                key={ i }
-                blurToSave={ cellEdit.blurToSave }
-                blurToEscape={ cellEdit.blurToEscape }
-                onTab={ this.handleEditCell }
-                rowIndex={ r }
-                colIndex={ i }
-                row={ data }
-                fieldValue={ fieldValue }
-                className={ column.editClassName }
-                invalidColumnClassName={ column.invalidEditColumnClassName }
-                beforeShowError={ beforeShowError }
-                isFocus={ isFocusCell }
-                customStyleWithNav={ customEditAndNavStyle } />
-            );
+            <TableEditColumn
+              completeEdit={ this.handleCompleteEditCell }
+              // add by bluespring for column editor customize
+              editable={ editable }
+              attrs={ column.editAttrs }
+              customEditor={ column.customEditor }
+              format={ column.format ? format : false }
+              key={ i }
+              blurToSave={ cellEdit.blurToSave }
+              blurToEscape={ cellEdit.blurToEscape }
+              onTab={ this.handleEditCell }
+              rowIndex={ r }
+              colIndex={ i }
+              row={ data }
+              fieldValue={ fieldValue }
+              className={ column.editClassName }
+              invalidColumnClassName={ column.invalidEditColumnClassName }
+              beforeShowError={ beforeShowError }
+              isFocus={ isFocusCell }
+              customStyleWithNav={ customEditAndNavStyle } />
+          );
         } else {
           // add by bluespring for className customize
           let formattedValue;
@@ -319,7 +321,7 @@ class TableBody extends Component {
     const { onRowClick, selectRow } = this.props;
     if (Utils.isSelectRowDefined(selectRow.mode)) cellIndex--;
     if (this._isExpandColumnVisible()) cellIndex--;
-    onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+    return onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
   }
 
   handleRowLongClick = (rowIndex, cellIndex, event) => {
@@ -376,6 +378,7 @@ class TableBody extends Component {
         clickToExpand,
         hideSelectColumn
       },
+      onRowClick,
       onlyOneExpanding
     } = this.props;
     const isSelectRowDefined = Utils.isSelectRowDefined(mode);
@@ -388,10 +391,18 @@ class TableBody extends Component {
       /* Below will allow expanding trigger by clicking on selection column
       if configure as expanding by column */
       (expandBy === Const.EXPAND_BY_COL && columnIndex < 0) ||
-      (expandBy === Const.EXPAND_BY_COL && columns[columnIndex].expandable))) {
+      (expandBy === Const.EXPAND_BY_COL && columns[columnIndex].expandable))
+    ) {
       let expanding = this.props.expanding;
-      const rowKey = this.props.data[rowIndex - 1][keyField];
+      const row = this.props.data[rowIndex - 1];
+      const rowKey = row[keyField];
       const isRowExpanding = expanding.indexOf(rowKey) > -1;
+
+      if (onRowClick) {
+        const res = onRowClick(row, rowIndex, columnIndex, event);
+        // let the onRowClick prop return value stop row expansion/selection handlers
+        if (res === false) return false;
+      }
 
       if (isRowExpanding) {  // collapse
         expanding = expanding.filter(k => k !== rowKey);

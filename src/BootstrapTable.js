@@ -772,10 +772,7 @@ class BootstrapTable extends Component {
   }
 
   handleRowClick = (row, rowIndex, columnIndex, event) => {
-    const { options, keyBoardNav } = this.props;
-    if (options.onRowClick) {
-      options.onRowClick(row, columnIndex, rowIndex, event);
-    }
+    const { options: { onRowClick }, keyBoardNav } = this.props;
     if (keyBoardNav) {
       let { clickToNav } = typeof keyBoardNav === 'object' ? keyBoardNav : {};
       clickToNav = clickToNav === false ? clickToNav : true;
@@ -789,6 +786,7 @@ class BootstrapTable extends Component {
         });
       }
     }
+    return onRowClick && onRowClick(row, columnIndex, rowIndex, event);
   }
 
   handleRowLongClick = (row, rowIndex, columnIndex, event) => {
@@ -1100,7 +1098,6 @@ class BootstrapTable extends Component {
       const currLastPage = Math.ceil(this.store.getDataNum() / sizePerPage);
       let { currPage } = this.state;
       if (currPage > currLastPage) currPage = currLastPage;
-      // console.log(Util.getNormalizedPage(currPage));
       result = this.store.page(Util.getNormalizedPage(pageStartIndex, currPage), sizePerPage).get();
       this.setState(() => {
         return {

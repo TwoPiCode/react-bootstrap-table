@@ -1330,12 +1330,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '__handleRowClick__REACT_HOT_LOADER__',
 	    value: function __handleRowClick__REACT_HOT_LOADER__(row, rowIndex, columnIndex, event) {
 	      var _props3 = this.props,
-	          options = _props3.options,
+	          onRowClick = _props3.options.onRowClick,
 	          keyBoardNav = _props3.keyBoardNav;
 
-	      if (options.onRowClick) {
-	        options.onRowClick(row, columnIndex, rowIndex, event);
-	      }
 	      if (keyBoardNav) {
 	        var _ref5 = (typeof keyBoardNav === 'undefined' ? 'undefined' : _typeof(keyBoardNav)) === 'object' ? keyBoardNav : {},
 	            clickToNav = _ref5.clickToNav;
@@ -1351,6 +1348,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          });
 	        }
 	      }
+	      return onRowClick && onRowClick(row, columnIndex, rowIndex, event);
 	    }
 	  }, {
 	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
@@ -1722,7 +1720,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var currPage = this.state.currPage;
 
 	        if (currPage > currLastPage) currPage = currLastPage;
-	        // console.log(Util.getNormalizedPage(currPage));
 	        result = this.store.page(_util2.default.getNormalizedPage(pageStartIndex, currPage), sizePerPage).get();
 	        this.setState(function () {
 	          return {
@@ -7583,6 +7580,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }).map(function (column, i) {
 	          var fieldValue = data[column.name];
 	          var isFocusCell = r === y && i === x;
+
 	          if (column.name !== this.props.keyField && // Key field can't be edit
 	          column.editable && // column is editable? default is true, user can set it false
 	          column.editable.readOnly !== true && this.state.currEditCell !== null && this.state.currEditCell.rid === r && this.state.currEditCell.cid === i && noneditableRows.indexOf(data[this.props.keyField]) === -1) {
@@ -7842,7 +7840,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      if (_util2.default.isSelectRowDefined(selectRow.mode)) cellIndex--;
 	      if (this._isExpandColumnVisible()) cellIndex--;
-	      onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
+	      return onRowClick(this.props.data[rowIndex - 1], rowIndex - 1, cellIndex, event);
 	    }
 	  }, {
 	    key: '__handleRowLongClick__REACT_HOT_LOADER__',
@@ -7909,6 +7907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          mode = _props5$selectRow.mode,
 	          clickToExpand = _props5$selectRow.clickToExpand,
 	          hideSelectColumn = _props5$selectRow.hideSelectColumn,
+	          onRowClick = _props5.onRowClick,
 	          onlyOneExpanding = _props5.onlyOneExpanding;
 
 	      var isSelectRowDefined = _util2.default.isSelectRowDefined(mode);
@@ -7920,8 +7919,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if configure as expanding by column */
 	      expandBy === _Const2.default.EXPAND_BY_COL && columnIndex < 0 || expandBy === _Const2.default.EXPAND_BY_COL && columns[columnIndex].expandable)) {
 	        var expanding = this.props.expanding;
-	        var rowKey = this.props.data[rowIndex - 1][keyField];
+	        var row = this.props.data[rowIndex - 1];
+	        var rowKey = row[keyField];
 	        var isRowExpanding = expanding.indexOf(rowKey) > -1;
+
+	        if (onRowClick) {
+	          var res = onRowClick(row, rowIndex, columnIndex, event);
+	          // let the onRowClick prop return value stop row expansion/selection handlers
+	          if (res === false) return false;
+	        }
 
 	        if (isRowExpanding) {
 	          // collapse
@@ -8296,13 +8302,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      var rowIndex = this.props.index + 1;
 	      var cellIndex = e.target.cellIndex || e.target.closest('td').cellIndex;
-	      if (this.props.onRowClick) this.props.onRowClick(rowIndex, cellIndex, e);
+
 	      var _props = this.props,
 	          selectRow = _props.selectRow,
 	          unselectableRow = _props.unselectableRow,
 	          isSelected = _props.isSelected,
 	          onSelectRow = _props.onSelectRow,
-	          onExpandRow = _props.onExpandRow,
 	          dbClickToEdit = _props.dbClickToEdit;
 
 	      if (selectRow) {
@@ -8317,7 +8322,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          setTimeout(function () {
 	            if (_this2.clickNum === 1) {
 	              onSelectRow(rowIndex, !isSelected, e);
-	              onExpandRow(e, rowIndex, cellIndex);
 	            }
 	            _this2.clickNum = 0;
 	          }, 200);
