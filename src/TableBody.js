@@ -179,7 +179,10 @@ class TableBody extends Component {
           ` ${this.props.expandParentClass(data, r)}` :
           ` ${this.props.expandParentClass}`;
       }
-      const result = [ <TableRow isSelected={ selected } key={ key } className={ trClassName }
+      const result = [ <TableRow
+        isSelected={ selected }
+        key={ key }
+        className={ trClassName }
         index={ r }
         row={ data }
         selectRow={ isSelectRowDefined ? this.props.selectRow : undefined }
@@ -196,6 +199,7 @@ class TableBody extends Component {
         onExpandRow={ this.handleClickCell }
         unselectableRow={ disable }
         style={ trStyle }
+        expandable={ !!haveExpandContent }
         hidden={ isExpanding && hideRowOnExpand }
         dbClickToEdit={ cellEdit.mode === Const.CELL_EDIT_DBCLICK } >
         { this.props.expandColumnOptions.expandColumnVisible &&
@@ -317,7 +321,7 @@ class TableBody extends Component {
     this.props.onRowMouseOver(targetRow, event);
   }
 
-  handleRowClick = (rowIndex, cellIndex, event) => {
+  handleRowClick = (row, rowIndex, cellIndex, event) => {
     const { onRowClick, selectRow } = this.props;
     if (Utils.isSelectRowDefined(selectRow.mode)) cellIndex--;
     if (this._isExpandColumnVisible()) cellIndex--;

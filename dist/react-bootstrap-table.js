@@ -7688,7 +7688,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        var result = [_react2.default.createElement(
 	          _TableRow2.default,
-	          { isSelected: selected, key: key, className: trClassName,
+	          {
+	            isSelected: selected,
+	            key: key,
+	            className: trClassName,
 	            index: r,
 	            row: data,
 	            selectRow: isSelectRowDefined ? this.props.selectRow : undefined,
@@ -7705,6 +7708,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            onExpandRow: this.handleClickCell,
 	            unselectableRow: disable,
 	            style: trStyle,
+	            expandable: !!haveExpandContent,
 	            hidden: isExpanding && hideRowOnExpand,
 	            dbClickToEdit: cellEdit.mode === _Const2.default.CELL_EDIT_DBCLICK },
 	          this.props.expandColumnOptions.expandColumnVisible && this.props.expandColumnOptions.expandColumnBeforeSelectColumn && expandedRowColumn,
@@ -7833,7 +7837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: '__handleRowClick__REACT_HOT_LOADER__',
-	    value: function __handleRowClick__REACT_HOT_LOADER__(rowIndex, cellIndex, event) {
+	    value: function __handleRowClick__REACT_HOT_LOADER__(row, rowIndex, cellIndex, event) {
 	      var _props3 = this.props,
 	          onRowClick = _props3.onRowClick,
 	          selectRow = _props3.selectRow;
@@ -8304,11 +8308,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var cellIndex = e.target.cellIndex || e.target.closest('td').cellIndex;
 
 	      var _props = this.props,
-	          selectRow = _props.selectRow,
-	          unselectableRow = _props.unselectableRow,
-	          isSelected = _props.isSelected,
-	          onSelectRow = _props.onSelectRow,
-	          dbClickToEdit = _props.dbClickToEdit;
+	          row = _props.row,
+	          expandable = _props.expandable,
+	          onRowClick = _props.onRowClick;
+
+	      if (!expandable && onRowClick) {
+	        onRowClick(row, rowIndex, cellIndex, e);
+	      }
+
+	      var _props2 = this.props,
+	          selectRow = _props2.selectRow,
+	          unselectableRow = _props2.unselectableRow,
+	          isSelected = _props2.isSelected,
+	          onSelectRow = _props2.onSelectRow,
+	          dbClickToEdit = _props2.dbClickToEdit;
 
 	      if (selectRow) {
 	        if (selectRow.clickToSelect && !unselectableRow) {
@@ -8337,10 +8350,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function __rowLongClickDown__REACT_HOT_LOADER__(e) {
 	      var _this3 = this;
 
-	      var _props2 = this.props,
-	          onRowLongClick = _props2.onRowLongClick,
-	          onRowMouseDown = _props2.onRowMouseDown,
-	          longClickDuration = _props2.longClickDuration;
+	      var _props3 = this.props,
+	          onRowLongClick = _props3.onRowLongClick,
+	          onRowMouseDown = _props3.onRowMouseDown,
+	          longClickDuration = _props3.longClickDuration;
 
 	      var rowIndex = this.props.index + 1;
 	      var cellIndex = e.target.cellIndex;
@@ -8410,13 +8423,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'render',
 	    value: function render() {
 	      this.clickNum = 0;
-	      var _props3 = this.props,
-	          selectRow = _props3.selectRow,
-	          row = _props3.row,
-	          isSelected = _props3.isSelected,
-	          className = _props3.className,
-	          index = _props3.index,
-	          hidden = _props3.hidden;
+	      var _props4 = this.props,
+	          selectRow = _props4.selectRow,
+	          row = _props4.row,
+	          isSelected = _props4.isSelected,
+	          className = _props4.className,
+	          index = _props4.index,
+	          hidden = _props4.hidden;
 	      var style = this.props.style;
 
 	      var backgroundColor = null;

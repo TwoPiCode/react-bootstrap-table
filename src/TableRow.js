@@ -23,6 +23,11 @@ class TableRow extends Component {
     const rowIndex = this.props.index + 1;
     const cellIndex = e.target.cellIndex || (e.target.closest('td')).cellIndex;
 
+    const { row, expandable, onRowClick } = this.props;
+    if (!expandable && onRowClick) {
+      onRowClick(row, rowIndex, cellIndex, e);
+    }
+
     const {
       selectRow, unselectableRow, isSelected, onSelectRow, dbClickToEdit
     } = this.props;
