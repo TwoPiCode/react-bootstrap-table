@@ -1230,40 +1230,39 @@ class BootstrapTable extends Component {
       };
       if (search) newState.expanding = [];
       return newState;
-    });
-
-    if (this.allowRemote(Const.REMOTE_SEARCH)) {
-      if (this.props.options.afterSearch) {
-        this.props.options.afterSearch(searchText, this.store.getDataIgnoringPagination());
+    }, () => {
+      if (this.allowRemote(Const.REMOTE_SEARCH)) {
+        if (this.props.options.afterSearch) {
+          this.props.options.afterSearch(searchText, this.store.getDataIgnoringPagination());
+        }
+        return;
       }
-      return;
-    }
 
+      this.store.search(searchText);
 
-    this.store.search(searchText);
+      const sortList = this.store.getSortInfo();
 
-    const sortList = this.store.getSortInfo();
+      if (sortList.length > 0) {
+        this.store.sort();
+      }
 
-    if (sortList.length > 0) {
-      this.store.sort();
-    }
-
-    let result;
-    if (this.props.pagination) {
-      const { sizePerPage } = this.state;
-      result = this.store.page(Util.getNormalizedPage(pageStartIndex), sizePerPage).get();
-    } else {
-      result = this.store.get();
-    }
-    if (this.props.options.afterSearch) {
-      this.props.options.afterSearch(searchText,
-        this.store.getDataIgnoringPagination());
-    }
-    this.setState(() => {
-      return {
-        data: result,
-        reset: false
-      };
+      let result;
+      if (this.props.pagination) {
+        const { sizePerPage } = this.state;
+        result = this.store.page(Util.getNormalizedPage(pageStartIndex), sizePerPage).get();
+      } else {
+        result = this.store.get();
+      }
+      if (this.props.options.afterSearch) {
+        this.props.options.afterSearch(searchText,
+          this.store.getDataIgnoringPagination());
+      }
+      this.setState(() => {
+        return {
+          data: result,
+          reset: false
+        };
+      });
     });
   }
 
