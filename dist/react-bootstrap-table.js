@@ -1015,6 +1015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            },
 	            bodyContainerClass: this.props.bodyContainerClass,
 	            tableBodyClass: this.props.tableBodyClass,
+	            modalicExpandableRows: this.props.modalicExpandableRows,
 	            style: _extends({}, style, this.props.bodyStyle),
 	            data: this.state.data,
 	            version: this.props.version,
@@ -2484,6 +2485,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  deleteRow: false,
 	  search: false,
 	  multiColumnSearch: false,
+	  modalicExpandableRows: false,
 	  strictSearch: undefined,
 	  multiColumnSort: 1,
 	  columnFilter: false,
@@ -7919,7 +7921,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          clickToExpand = _props5$selectRow.clickToExpand,
 	          hideSelectColumn = _props5$selectRow.hideSelectColumn,
 	          onRowClick = _props5.onRowClick,
-	          onlyOneExpanding = _props5.onlyOneExpanding;
+	          onlyOneExpanding = _props5.onlyOneExpanding,
+	          modalicExpandableRows = _props5.modalicExpandableRows;
 
 	      var isSelectRowDefined = _util2.default.isSelectRowDefined(mode);
 	      var selectRowAndExpand = isSelectRowDefined && !clickToExpand ? false : true;
@@ -7947,7 +7950,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	          });
 	        } else {
 	          // expand
-	          if (onlyOneExpanding) expanding = [rowKey];else expanding.push(rowKey);
+	          if (modalicExpandableRows) {
+	            if (expanding.length === 0) {
+	              expanding = [rowKey];
+	            } else {
+	              expanding = [];
+	            }
+	          } else {
+	            if (onlyOneExpanding) {
+	              expanding = [rowKey];
+	            } else {
+	              expanding.push(rowKey);
+	            }
+	          }
 	        }
 	        this.props.onExpand(expanding, rowKey, isRowExpanding, event);
 	      }
