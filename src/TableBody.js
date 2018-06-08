@@ -225,7 +225,12 @@ class TableBody extends Component {
             hidden={ !isExpanding }
             colSpan={ expandColSpan }
             width={ "100%" }>
-            { this.props.expandComponent(data) }
+            { this.props.expandComponent(data, {
+              expanded: isExpanding,
+              expandable: haveExpandContent,
+              disabled: disable,
+              selected
+            }) }
           </ExpandComponent>
         );
       }
@@ -383,7 +388,8 @@ class TableBody extends Component {
         hideSelectColumn
       },
       onRowClick,
-      onlyOneExpanding
+      onlyOneExpanding,
+      modalicExpandableRows
     } = this.props;
     const isSelectRowDefined = Utils.isSelectRowDefined(mode);
     const selectRowAndExpand = isSelectRowDefined && !clickToExpand ? false : true;
@@ -411,8 +417,19 @@ class TableBody extends Component {
       if (isRowExpanding) {  // collapse
         expanding = expanding.filter(k => k !== rowKey);
       } else {  // expand
-        if (onlyOneExpanding) expanding = [ rowKey ];
-        else expanding.push(rowKey);
+        if (modalicExpandableRows) {
+          if (expanding.length === 0) {
+            expanding = [ rowKey ];
+          } else {
+            expanding = [];
+          }
+        } else {
+          if (onlyOneExpanding) {
+            expanding = [ rowKey ];
+          } else {
+            expanding.push(rowKey);
+          }
+        }
       }
       this.props.onExpand(expanding, rowKey, isRowExpanding, event);
     }

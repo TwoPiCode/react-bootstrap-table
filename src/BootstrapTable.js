@@ -497,6 +497,7 @@ class BootstrapTable extends Component {
           ref={ node => this.body = node }
             bodyContainerClass={ this.props.bodyContainerClass }
             tableBodyClass={ this.props.tableBodyClass }
+            modalicExpandableRows={ this.props.modalicExpandableRows }
             style={ { ...style, ...this.props.bodyStyle } }
             data={ this.state.data }
             version={ this.props.version }
@@ -1829,6 +1830,7 @@ BootstrapTable.defaultProps = {
   deleteRow: false,
   search: false,
   multiColumnSearch: false,
+  modalicExpandableRows: false,
   strictSearch: undefined,
   multiColumnSort: 1,
   columnFilter: false,
