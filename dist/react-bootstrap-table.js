@@ -8309,6 +8309,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var rowIndex = this.props.index + 1;
 	      var cellIndex = e.target.cellIndex || e.target.closest('td').cellIndex;
 
+	      // if (cellIndex === null || cellIndex === undefined) return false;
+
 	      var _props = this.props,
 	          row = _props.row,
 	          expandable = _props.expandable,

@@ -21,7 +21,9 @@ class TableRow extends Component {
     if (!this.clickTimer) { return false; }
 
     const rowIndex = this.props.index + 1;
-    const cellIndex = e.target.cellIndex || (e.target.closest('td')).cellIndex;
+    const cellIndex = e.target.cellIndex || (e.target.closest('td') || {}).cellIndex;
+
+    if (cellIndex === null || cellIndex === undefined) return false;
 
     const { row, expandable, onRowClick } = this.props;
     if (!expandable && onRowClick) {
