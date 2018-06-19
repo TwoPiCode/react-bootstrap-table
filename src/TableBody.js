@@ -17,7 +17,7 @@ class TableBody extends Component {
   }
 
   render() {
-    const { cellEdit, beforeShowError, x, y, keyBoardNav, trStyle, version } = this.props;
+    const { cellEdit, beforeShowError, x, y, keyBoardNav, trStyle, version, highlight } = this.props;
     const customTableClasses = {
       'table-striped': this.props.striped,
       'table-bordered': this.props.bordered,
@@ -185,6 +185,7 @@ class TableBody extends Component {
         className={ trClassName }
         index={ r }
         row={ data }
+        highlight={ highlight }
         selectRow={ isSelectRowDefined ? this.props.selectRow : undefined }
         enableCellEdit={ cellEdit.mode !== Const.CELL_EDIT_NONE }
         onRowClick={ this.handleRowClick }
@@ -242,7 +243,7 @@ class TableBody extends Component {
         + ((isSelectRowDefined && !this.props.selectRow.hideSelectColumn) ? 1 : 0)
         + (this.props.expandColumnOptions.expandColumnVisible ? 1 : 0);
       tableRows = [
-        <TableRow key='##table-empty##' style={ trStyle }>
+        <TableRow key='##table-empty##' style={ trStyle } highlight={ highlight }>
           <td data-toggle='collapse'
               colSpan={ colSpan }
               className='react-bs-table-no-data'>

@@ -494,7 +494,8 @@ class BootstrapTable extends Component {
             { this.props.children }
           </TableHeader>
           <TableBody
-          ref={ node => this.body = node }
+            ref={ node => this.body = node }
+            highlight={ this.props.highlight }
             bodyContainerClass={ this.props.bodyContainerClass }
             tableBodyClass={ this.props.tableBodyClass }
             modalicExpandableRows={ this.props.modalicExpandableRows }
@@ -1792,6 +1793,7 @@ BootstrapTable.defaultProps = {
     expandedColumnHeaderComponent: undefined,
     expandColumnBeforeSelectColumn: true
   },
+  highlight: true,
   height: '100%',
   maxHeight: undefined,
   striped: false,

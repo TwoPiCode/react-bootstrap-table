@@ -119,7 +119,8 @@ class TableRow extends Component {
 
   render() {
     this.clickNum = 0;
-    const { selectRow, row, isSelected, className, index, hidden } = this.props;
+    const { selectRow, row, isSelected, className, index, hidden, highlight } = this.props;
+    const { pressing } = this.state;
     let { style } = this.props;
     let backgroundColor = null;
     let selectRowClass = null;
@@ -144,7 +145,7 @@ class TableRow extends Component {
     const trCss = {
       style: { ...style },
       className: classSet(selectRowClass, className)
-        + (this.state.pressing ? ' react-bs-pressing-highlight' : '')
+        + ((pressing && highlight) ? ' react-bs-pressing-highlight' : '')
     };
 
     return (
@@ -180,6 +181,7 @@ TableRow.propTypes = {
 TableRow.defaultProps = {
   onRowClick: undefined,
   onRowDoubleClick: undefined,
-  hidden: false
+  hidden: false,
+  highlight: true
 };
 export default TableRow;
